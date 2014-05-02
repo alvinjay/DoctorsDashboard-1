@@ -276,7 +276,7 @@ public class LoginActivity extends Activity {
 				mPasswordView.requestFocus();
 			}
 		}
-
+		//testing lang po sir
 		@Override
 		protected void onCancelled() {
 			mAuthTask = null;
