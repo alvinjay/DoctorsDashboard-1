@@ -1,5 +1,7 @@
 package com.example.android.navigationdrawerexample;
 
+import com.example.database.DatabaseAdapter;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
@@ -55,7 +57,7 @@ public class ValidateDoctor extends Activity {
 		
 		
 		//Toast.makeText(this, username + " " + password, Toast.LENGTH_SHORT).show();
-		DatabaseHandler db = new DatabaseHandler(this);
+		DatabaseAdapter db = new DatabaseAdapter(this);
 		if(password.equals(confirm_password)){
 			db.updateDoctor(personnel_number, username, password);
 			Intent intent = new Intent(this, LoginActivity.class);

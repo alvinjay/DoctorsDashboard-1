@@ -2,6 +2,9 @@ package com.example.android.navigationdrawerexample;
 
 
 
+import com.example.database.DatabaseAdapter;
+import com.example.model.DoctorProfile;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
@@ -33,7 +36,7 @@ public class RegisterActivity extends Activity {
 		String personnel_number = personnel_number_text.getText().toString();
 		//Toast.makeText(this, personnel_number, Toast.LENGTH_SHORT).show();
 		
-		DatabaseHandler db = new DatabaseHandler(this);
+		DatabaseAdapter db = new DatabaseAdapter(this);
 		try{
 			if(db.ifExists(personnel_number)){
 				doctor = db.getDoctor(personnel_number);

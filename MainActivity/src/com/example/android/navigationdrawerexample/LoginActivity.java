@@ -1,5 +1,7 @@
 package com.example.android.navigationdrawerexample;
 
+import com.example.database.DatabaseAdapter;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -158,7 +160,7 @@ public class LoginActivity extends Activity {
 			// perform the user login attempt.
 			mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
 			
-			DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+			DatabaseAdapter db = new DatabaseAdapter(getApplicationContext());
 			if(db.checkDoctorCredentials(mEmail,mPassword)){
 				//Thread.sleep(2000);
 				//Toast.makeText(getApplicationContext(), "Nice one", Toast.LENGTH_SHORT).show();
