@@ -15,9 +15,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import java.util.*;
 
 public class DatabaseHandler extends SQLiteOpenHelper
 {
+	//Doctor variables
 	private static final int database_version = 1;
 	private static final String database_name = "seg_db_test";
 	private static final String table_name = "doctors";
@@ -29,6 +31,9 @@ public class DatabaseHandler extends SQLiteOpenHelper
 	//private static final String doctor_middle_name = "doctormiddlename" ;
 	private static final String doctor_last_name = "seg_lastname";
 	
+	//Patient list variables
+	private ArrayList<String> patientlist = new ArrayList<String>();
+
 	public DatabaseHandler(Context context)
 	{
 		super(context, database_name, null, database_version);
@@ -86,6 +91,18 @@ public class DatabaseHandler extends SQLiteOpenHelper
 	
 	}
 	
+	public boolean ifCredentialsExist(String personnel_number){
+		SQLiteDatabase db = this.getWritableDatabase();
+		String query = "SELECT seg_username FROM doctors WHERE seg_personnel_number = '" + personnel_number + "'";
+		Cursor cursor = db.rawQuery(query, null);
+		if(cursor.moveToFirst()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 	public DoctorProfile getDoctor(String personnelnumber){
 		DoctorProfile doctor = new DoctorProfile("username", "password", "firstname", "lastname");
 		String doctor_firstname = "Firstname";
@@ -114,6 +131,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		
 		return doctor;
 	}
+	
+	
 	//temporary update function
 	public void updateDoctor(String personnel_number, String username, String password)
 	{
@@ -147,5 +166,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 			return false;
 		}
 	}
+	
+	
 	
 }
