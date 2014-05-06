@@ -1,6 +1,8 @@
 package com.example.android.navigationdrawerexample;
 
+
 import com.example.database.DatabaseAdapter;
+import com.example.database.DatabaseHandler;
 
 import android.app.Activity;
 import android.app.Fragment;

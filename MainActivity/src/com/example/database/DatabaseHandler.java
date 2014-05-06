@@ -68,9 +68,10 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		db.execSQL("INSERT INTO 'doctor' ('personnel_id','dept_id','name_last','name_first') VALUES (1000,1,'Dalisay','Christian')");
 		db.execSQL("INSERT INTO 'doctor' ('personnel_id','dept_id','name_last','name_first') VALUES (1001,1,'Muncada','Jake')");
 		db.execSQL("INSERT INTO 'patient' ('pid','name_last','name_first') VALUES (1,'Cosare','Alvin')");
-		db.execSQL("INSERT INTO 'encounter' ('encounter_id','pid','date_encountered') VALUES (1,1,'2012-07-01 00:00:00' )");
-		db.execSQL("INSERT INTO 'encounter' ('encounter_id','pid','date_encountered') VALUES (2,2,'2013-06-02 00:08:00' )");
-		db.execSQL("INSERT INTO 'encounter' ('encounter_id','pid','date_encountered','date_released') VALUES (3,1,'2014-01-03 00:00:00','2014-01-02 12:00:00' )");
+		db.execSQL("INSERT INTO 'patient' ('pid','name_last','name_first') VALUES (2,'Lagmay','Gabriel')");
+		db.execSQL("INSERT INTO 'encounter' ('encounter_id','pid','type_patient','message_complaint','date_encountered') VALUES (1,1,'OPD','No complaint','2012-07-01 00:00:00' )");
+		db.execSQL("INSERT INTO 'encounter' ('encounter_id','pid','type_patient','message_complaint','date_encountered') VALUES (2,2,'OPD','No complaint','2013-06-02 00:08:00' )");
+		db.execSQL("INSERT INTO 'encounter' ('encounter_id','pid','type_patient','message_complaint','date_encountered','date_released') VALUES (3,1,'OPD','No complaint','2014-01-03 00:00:00','2014-01-02 12:00:00' )");
 		db.execSQL("INSERT INTO 'reason' ('reason_id','name_reason') VALUES (1,'Fever') ");
 		db.execSQL("INSERT INTO 'referral' ('referral_id','encounter_id','dept_id','reason_id','date_referred') VALUES (1,1,1,1,'2013-06-02 00:12:00' )");
 		Log.d("DatabaseHandler","onCreateDummy successful");

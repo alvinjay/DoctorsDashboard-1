@@ -148,6 +148,14 @@ public abstract class BaseActivity extends Activity{
         	else if(position == 5){
         		intent = new Intent(context, EncountersActivity.class);
         	}
+            
+            else if(position == 6){
+             
+                intent = new Intent(context, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); 
+
+            }
+            
         	
         	startActivity(intent);
             selectItem(position);
